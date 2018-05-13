@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MyTimer"
+             x:Class="MyTimer.CountDownPage"
+             xmlns:vm="clr-namespace:MyTimer"
+             Appearing="CountDownPageAppearing"
+             Disappearing="CountDownPageDisappearing"
+             Title="カウントダウン">
+    <!-- ViewModel を設定、構築 -->
+    <ContentPage.BindingContext>
+        <vm:CountDownPageViewModel/>
+    </ContentPage.BindingContext>
+    <!-- ページの表示内容 -->
+    <ContentPage.Content>
+        <Grid>
+            <!-- 背景画像 -->
+            <Image Source="{local:ImageResource MyTimer.Resources.Background.png}" Aspect="AspectFit" />
+            <!-- 文字が背景に埋もれないよう、背景画像に半透明色を乗せる -->
+            <Grid BackgroundColor="#80FFFFFF"/>
+
+            <!-- 残り時間の表示 -->
+            <Label Text="{Binding Time, StringFormat='{0:mm\\:ss\\.fff}'}"
+                HorizontalOptions="Center" VerticalOptions="Center"
+                FontSize="96" TextColor="Black" FontAttributes="Bold"/>
+            <!-- Back ボタン -->
+            <Button Text=" &lt; Back " Command="{Binding GoBackCommand}"
+                HorizontalOptions="Start" VerticalOptions="Start"
+                BackgroundColor="#80808080"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MyTimer"
+             x:Class="MyTimer.MainPage"
+             xmlns:vm="clr-namespace:MyTimer"
+             Appearing="MainPageAppearing"
+             Disappearing="MainPageDisappearing"
+             Title="オリジナルタイマーアプリ">
+    <!-- ViewModel を設定、構築 -->
+    <ContentPage.BindingContext>
+        <vm:MainPageViewModel />
+    </ContentPage.BindingContext>
+
+    <!-- ページの表示内容 -->
+    <ContentPage.Content>
+        <Grid>
+            <!-- 背景画像 -->
+            <Image Source="{local:ImageResource MyTimer.Resources.Background.png}" Aspect="AspectFit" />
+
+            <Grid BackgroundColor="#80FFFFFF">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- 設定中のタイマー時間表示 -->
+                <Label Text="{Binding Time, StringFormat='{0:mm\\:ss}'}"
+                    Grid.ColumnSpan="2"
+                    HorizontalOptions="Center" VerticalOptions="Center"
+                    FontSize="Large" TextColor="Black" FontAttributes="Bold"/>
+
+                <!-- タイマー開始ボタン -->
+                <Button Text="タイマー開始" Command="{Binding StartCommand}" 
+                    Grid.Row="1" Grid.RowSpan="2"
+                    BackgroundColor="#80808080"/>
+
+                <!-- タイマー時間の + - ボタン達 -->
+                <StackLayout Orientation="Horizontal"
+                    Grid.Row="1" Grid.Column="1"
+                    HorizontalOptions="Center">
+                    <!-- 分の + - ボタン達 -->
+                    <StackLayout>
+                        <!-- 「分」 ラベル -->
+                        <Label Text="分" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+                        <!-- + - ボタン達  -->
+                        <StackLayout Orientation="Horizontal">
+                            <!-- 10の位設定 -->
+                            <StackLayout>
+                                <Label Text="10" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+                                <Button Text="＋" Command="{Binding AddMinutesCommand}" CommandParameter="10" BackgroundColor="#80808080"/>
+                                <Button Text="ー" Command="{Binding AddMinutesCommand}" CommandParameter="-10" BackgroundColor="#80808080"/>
+                            </StackLayout>
+                            <!-- 1の位設定 -->
+                            <StackLayout>
+                                <Label Text="1" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+                                <Button Text="＋" Command="{Binding AddMinutesCommand}" CommandParameter="1" BackgroundColor="#80808080"/>
+                                <Button Text="ー" Command="{Binding AddMinutesCommand}" CommandParameter="-1" BackgroundColor="#80808080"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                    <!-- 秒の + - ボタン達 -->
+                    <StackLayout>
+                        <!-- 「秒」 ラベル -->
+                        <Label Text="秒" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+                        <!-- + - ボタン達  -->
+                        <StackLayout Orientation="Horizontal">
+                            <!-- 10の位設定 -->
+                            <StackLayout>
+                                <Label Text="10" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+                                <Button Text="＋" Command="{Binding AddSecondsCommand}" CommandParameter="10" BackgroundColor="#80808080"/>
+                                <Button Text="ー" Command="{Binding AddSecondsCommand}" CommandParameter="-10" BackgroundColor="#80808080"/>
+                            </StackLayout>
+                            <!-- 1の位設定 -->
+                            <StackLayout>
+                                <Label Text="1" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold"/>
+                                <Button Text="＋" Command="{Binding AddSecondsCommand}" CommandParameter="1" BackgroundColor="#80808080"/>
+                                <Button Text="ー" Command="{Binding AddSecondsCommand}" CommandParameter="-1" BackgroundColor="#80808080"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+                <!-- カウント後の音声設定 -->
+                <Grid Grid.Row="2" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!-- テキスト読み上げ or 音声ファイル の選択 Switch -->
+                    <Switch x:Name="useSpeechText" IsToggled="{Binding UseSpeechText}" />
+                    <Grid Grid.Column="1">
+                        <!-- 音声ファイルを使用ラベル -->
+                        <Label Text="音声ファイルを使用"
+                            HorizontalOptions="Fill" VerticalOptions="Center" HorizontalTextAlignment="Start"
+                            TextColor="Black" FontAttributes="Bold"/>
+                        <!-- テキスト読み上げのテキスト -->
+                        <Editor Text="{Binding SpeechText}"
+                            HorizontalOptions="Fill"
+                            IsVisible="{Binding IsToggled, Source={x:Reference useSpeechText}" BackgroundColor="White"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
