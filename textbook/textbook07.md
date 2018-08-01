@@ -36,7 +36,7 @@ View にバインディングされる ViewModel を指定します。
     <ContentPage.Content>
 ```
 XAML はオブジェクトを構築する設計書です。  
-ここでは、```ContentPage``` オブジェクトの ```BindingContext``` プロパティに ```MainPageViewModel‘‘‘ クラスをインスタンス化し設定する、という指定をしています。
+ここでは、```ContentPage``` オブジェクトの ```BindingContext``` プロパティに ```MainPageViewModel``` クラスをインスタンス化し設定する、という指定をしています。
 
 ## 値のバインディング
 View の値と ViewModel のプロパティをバインディングします。  

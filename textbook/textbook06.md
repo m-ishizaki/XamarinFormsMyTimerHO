@@ -207,7 +207,6 @@ private long ParseLong(object arg)
 
 **・AddTime メソッド**  
 タイマー設定時間を増減するメソッドで、```Time``` プロパティの値を変更します。マイナス値を設定することで値の減少ができます。
-内部で、```ParseLong``` メソッドを使用します。
 ```cs
 // タイマー時間を追加する
 private void AddTime(long seconds)
@@ -224,7 +223,7 @@ private void AddTime(long seconds)
 
 **・AddSeconds メソッド**  
 タイマー設定時間の秒を増減するメソッドです。マイナス値を設定することで値の減少ができます。  
-内部で、```AddTime``` メソッドを使用します。
+内部で、```AddTime``` メソッドと ```ParseLong``` メソッドを使用します。
 ```cs
 // **コマンドの中身となるボタンが押された際の処理メソッド**
 
