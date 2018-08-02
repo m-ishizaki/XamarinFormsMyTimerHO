@@ -422,12 +422,12 @@ namespace MyTimer
 {
     // 起動直後の画面。タイマー設定を行う画面
     public partial class MainPage : ContentPage
-	{
+    {
         // コンストラクタ
         public MainPage()
-		{
-			InitializeComponent();
-		}
+        {
+            InitializeComponent();
+        }
 
         // 画面が表示されたタイミングでの処理
         private void MainPageAppearing(object sender, EventArgs e)
