@@ -31,11 +31,11 @@ MessagingCenter.Send(this, "DisplayAlert", alertParameter);
 ```MessagingCenter``` クラスの ```Subscribe``` メソッドによりメッセージを購読します。  
 3 つ目の引数にはメッセージを受信した際に呼び出されるメソッドを設定します。
 ```cs
-MessagingCenter.Subscribe<ViewModels.MainPageViewModel, AlertParameter>(this, "DisplayAlert", DisplayAlert);
+MessagingCenter.Subscribe<MainPageViewModel, AlertParameter>(this, "DisplayAlert", DisplayAlert);
 ```
 また、メッセージの購読は購読者を ```MessagingCenter``` へ登録しますので、必要がなくなったら登録を解除しなければなりません。
 ```cs
-MessagingCenter.Unsubscribe<ViewModels.MainPageViewModel, AlertParameter>(this, "DisplayAlert");
+MessagingCenter.Unsubscribe<MainPageViewModel, AlertParameter>(this, "DisplayAlert");
 ```
 
 ## パラメータークラスの作成
@@ -144,17 +144,17 @@ private void MainPageAppearing(object sender, EventArgs e)
 {
     // メッセージの購読を設定する
     // アラートダイアログ表示メッセージを購読する
-    MessagingCenter.Subscribe<ViewModels.MainPageViewModel, AlertParameter>(this, "DisplayAlert", DisplayAlert);
+    MessagingCenter.Subscribe<MainPageViewModel, AlertParameter>(this, "DisplayAlert", DisplayAlert);
     // タイマースタートのメッセージを購読する
-    MessagingCenter.Subscribe<ViewModels.MainPageViewModel>(this, "Start", StartTimer);
+    MessagingCenter.Subscribe<MainPageViewModel>(this, "Start", StartTimer);
 }
 
 // 画面が表示されなくなったタイミングでの処理
 private void MainPageDisappearing(object sender, EventArgs e)
 {
     // メッセージの購読を解除する
-    MessagingCenter.Unsubscribe<ViewModels.MainPageViewModel, AlertParameter>(this, "DisplayAlert");
-    MessagingCenter.Unsubscribe<ViewModels.MainPageViewModel>(this, "Start");
+    MessagingCenter.Unsubscribe<MainPageViewModel, AlertParameter>(this, "DisplayAlert");
+    MessagingCenter.Unsubscribe<MainPageViewModel>(this, "Start");
 }
 ```
 
