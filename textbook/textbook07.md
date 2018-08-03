@@ -9,7 +9,7 @@ ViewModel のプロパティと View 要素をデータバインディングに�
 データバインディングにより、View の値と ViewModel の値が同期し、一方が変わるともう一方も変わるようになります。  
 また、ボタンタップ時にはバインディングされた ViewModel のコマンドプロパティの処理が実行されます。  
 
-## BindingContext ぼ設定
+## BindingContext の設定
 View にバインディングされる ViewModel を指定します。  
 ```MainPage.xaml``` の ```ContentPage``` の子要素として、次のコードを追加してください。  
 ```xml

@@ -108,7 +108,7 @@ namespace MyTimer
 今回のアプリでは、音声ファイルも同様にリソースとして埋め込み使用します。  
 同じ手順になるので、ここで追加しておきます。  
 
-[音声ファイル](./resources/voice.m4a)  
+[音声ファイル](./resources/voice.m4a?raw=true)  
 
 [ビルド アクション] の設定を忘れずに行ってください。  
 ```Resources``` フォルダには
