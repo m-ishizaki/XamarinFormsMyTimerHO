@@ -66,7 +66,7 @@ namespace MyTimer
 背景画像ファイルをプロジェクトに追加します。  
 ・次のファイルをダウンロードします。  
 ![](./resources/Background.png)  
-[背景画像ファイル](./resources/Background.png)  
+[背景画像ファイル](./resources/Background.png?raw=true)  
 
 ## 画像のプロジェクトへの追加 (Mac の場合)
 ・ソリューションエクスプローラー上の [MyTimer] 上で二本指タップ (右クリック) します。  

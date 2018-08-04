@@ -143,7 +143,7 @@ namespace MyTimer
 }
 ```
 
-**・CountDownPage.cs**
+**・CountDownPage.xaml.cs**
 ```cs
 using System;
 using System.Collections.Generic;
@@ -157,13 +157,13 @@ using Xamarin.Forms.Xaml;
 namespace MyTimer
 {
     // タイマーカウントダウン画面
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CountDownPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class CountDownPage : ContentPage
+    {
         // コンストラクタ
-		public CountDownPage ()
-		{
-			InitializeComponent ();
+        public CountDownPage ()
+        {
+            InitializeComponent ();
         }
 
         // 画面が表示されたタイミングでの処理
@@ -189,7 +189,7 @@ namespace MyTimer
     }
 }
 ```
-**・CountDownPage.xaml.cs**
+**・CountDownPage.xaml**
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
